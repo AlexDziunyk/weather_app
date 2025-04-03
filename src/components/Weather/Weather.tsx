@@ -6,8 +6,7 @@ import { IWeatherData } from "../../types/weather";
 import WeatherItem from "../WeatherItem/WeatherItem";
 import classes from "./Weather.module.css";
 import ErrorText from "../ErrorText/ErrorText";
-import { CACHE_KEY } from "../../constants/localStorage";
-import { formatWeatherData } from "../../utils/api";
+import { setCacheData, getCacheData } from "../../utils/api";
 
 const Weather = () => {
   const [weatherData, setWeatherData] = useState<IWeatherData | null>(null);
@@ -15,14 +14,10 @@ const Weather = () => {
 
   const fetchWeather = async (value: string) => {
     try {
-      const cache = localStorage.getItem(CACHE_KEY);
-
+      const cache = getCacheData(value);
       if (cache) {
-        const cacheValue = JSON.parse(cache);
-        if (cacheValue[value]) {
-          setWeatherData(cacheValue[value]);
-          return;
-        }
+        setWeatherData(cache);
+        return;
       }
 
       const [lat, lon] = value.split("_");
@@ -32,13 +27,7 @@ const Weather = () => {
         }`
       );
 
-      localStorage.setItem(
-        CACHE_KEY,
-        JSON.stringify({
-          ...JSON.parse(cache ?? "{}"),
-          [value]: { ...formatWeatherData(data) },
-        })
-      );
+      setCacheData(data, value);
       setWeatherData(data);
     } catch (error) {
       if (error instanceof Error) {

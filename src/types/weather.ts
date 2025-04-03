@@ -13,8 +13,9 @@ export interface IWeatherData {
     temp: number;
   };
   weather: { description: string; icon: string }[];
+  timestamp?: string;
 }
 
 export interface IWeatherCache {
-  [key: string]: IWeatherData
+  [key: string]: IWeatherData;
 }
