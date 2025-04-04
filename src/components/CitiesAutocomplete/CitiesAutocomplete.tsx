@@ -25,7 +25,6 @@ const CitiesAutocomplete = ({ onSubmit }: CitiesAutocompleteProps) => {
 
       setLoading(false);
       setCitiesArr(data);
-      console.log(data);
       if (data.length === 0) {
         throw new Error("There is no such city. Please, try again.");
       }
