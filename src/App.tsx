@@ -5,9 +5,9 @@ import { MantineProvider } from "@mantine/core";
 
 function App() {
   return (
-    <MantineProvider>
+   
       <WeatherApp />
-    </MantineProvider>
+
   );
 }
 

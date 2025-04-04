@@ -51,7 +51,7 @@ const CitiesAutocomplete = ({ onSubmit }: CitiesAutocompleteProps) => {
     }
 
     setLoading(true);
-    timeoutRef.current = setTimeout(() => {
+    timeoutRef.current = window.setTimeout(() => {
       fetchCitiesList(value);
     }, 1000);
   };
