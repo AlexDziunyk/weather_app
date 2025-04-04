@@ -83,4 +83,3 @@ describe("Caching functionality", () => {
     expect(result).toStrictEqual(null);
   });
 });
-
