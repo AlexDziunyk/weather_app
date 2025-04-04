@@ -10,7 +10,7 @@ const renderWithMantine = (ui: React.ReactNode) =>
   render(<MantineProvider>{ui}</MantineProvider>);
 
 vi.mock("axios");
-const mockedAxios = axios as jest.Mocked<typeof axios>;
+const mockedAxios = vi.mocked(axios, true);
 
 describe("WeatherApp component", () => {
   beforeEach(() => {
