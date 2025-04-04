@@ -1,4 +1,4 @@
-import Weather from "./components/Weather/Weather";
+import WeatherApp from "./components/WeatherApp/WeatherApp";
 import "@mantine/core/styles.css";
 
 import { MantineProvider } from "@mantine/core";
@@ -6,7 +6,7 @@ import { MantineProvider } from "@mantine/core";
 function App() {
   return (
     <MantineProvider>
-      <Weather />
+      <WeatherApp />
     </MantineProvider>
   );
 }

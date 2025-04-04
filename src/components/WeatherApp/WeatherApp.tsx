@@ -4,7 +4,7 @@ import CitiesAutocomplete from "../CitiesAutocomplete/CitiesAutocomplete";
 import { useState } from "react";
 import { IWeatherData } from "../../types/weather";
 import WeatherItem from "../WeatherItem/WeatherItem";
-import classes from "./Weather.module.css";
+import classes from "./WeatherApp.module.css";
 import ErrorText from "../ErrorText/ErrorText";
 import { setCacheData, getCacheData } from "../../utils/api";
 
